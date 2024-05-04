@@ -44,7 +44,7 @@ int main()
 	msgid = msgget(key, 0666 | IPC_CREAT); 
 	message.mesg_type = 1; 
 	printf("Write Data : "); 
-	gets(message.mesg_text); 
+	fgets(message.mesg_text,sizeof(message.mesg_text),stdin); 
 	// msgsnd to send message 
 	msgsnd(msgid, &message, sizeof(message), 0); 
 	// display the message 
